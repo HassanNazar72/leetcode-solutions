@@ -1,4 +1,4 @@
-// Last updated: 10/12/2025, 21:49:36
+// Last updated: 10/12/2025, 21:50:23
 1/**
 2 * @param {number[]} nums
 3 * @param {number} target
@@ -6,12 +6,15 @@
 5 */
 6var twoSum = function(nums, target) {
 7    for (let i = 0; i < nums.length; i++) {
-8        for (let j = i + 1; j < nums.length; j++) {
-9            if (nums[i] + nums[j] === target) {
-10                return [i, j];
-11            }
+8        let sub = target - nums[i];
+9
+10        // search for sub starting from the next index
+11        let j = nums.indexOf(sub, i + 1);
 12
-13        }
-14    }
-15};
-16
+13        if (j !== -1) {
+14            return [i, j];
+15        }
+16    }
+17    return null;
+18};
+19
