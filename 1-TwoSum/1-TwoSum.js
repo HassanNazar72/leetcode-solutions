@@ -1,4 +1,4 @@
-// Last updated: 10/12/2025, 21:50:23
+// Last updated: 11/12/2025, 14:40:03
 1/**
 2 * @param {number[]} nums
 3 * @param {number} target
@@ -8,13 +8,13 @@
 7    for (let i = 0; i < nums.length; i++) {
 8        let sub = target - nums[i];
 9
-10        // search for sub starting from the next index
-11        let j = nums.indexOf(sub, i + 1);
-12
-13        if (j !== -1) {
-14            return [i, j];
-15        }
-16    }
-17    return null;
-18};
+10        const foundIndex = nums.findIndex((element, index) => element === sub && index !== i);
+11
+12        if (foundIndex !== -1) {
+13            return [i, foundIndex];
+14        }
+15    }
+16    return null;
+17};
+18
 19
